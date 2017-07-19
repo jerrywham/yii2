@@ -35,21 +35,21 @@ if (YII_ENV_DEV) {
 La configuration ci-dessus établit que dans un [environnement de développement](concept-configurations.md#environment-constants), 
 l’application doit inclure un module appelé `gii`, qui est de classe [[yii\gii\Module]].
 
-Si vous vérifiez le [script de démarrage](structure-entry-scripts.md) `web/index.php` de votre application, vous 
+Si vous vérifiez le [script de démarrage](structure-entry-scripts.md) `web/index.php` de votre application, vous devriez voir
 les lignes suivantes, qui en gros, font que `YII_ENV_DEV` est vrai.
 
 ```php
 defined('YII_ENV') or define('YII_ENV', 'dev');
 ```
 
-Grâce à cette ligne, votre application est en mode développement, et aura déjà active Gii, suivant la configuration 
+Grâce à cette ligne, votre application est en mode développement, et aura déjà activé Gii, suivant la configuration 
 ci-dessus. Vous pouvez maintenant accéder à Gii via l’URL suivante :
 
 ```
 http://hostname/index.php?r=gii
 ```
 
-> Note : Si vous accède à Gii depuis une machine autre que localhost, l’accès sera refuse par défaut pour des raisons 
+> Note : Si vous accèdez à Gii depuis une machine autre que localhost, l’accès sera refusé par défaut pour des raisons 
 > de sécurité. Vous pouvez configurer Gii pour ajouter les adresses IP autorisées comme suit,
 >
 ```php
@@ -73,10 +73,10 @@ dans la page index de Gii). Puis complétez le formulaire comme suit :
 
 ![Générateur de Modèles](images/start-gii-model.png)
 
-Ensuite, cliquez sur le bouton "Preview". Vous verrez que `models/Country.php` est listé comme fichier de classe à être créé. Vous pouvez cliquer sur le nom du fichier de classe pour pré visualiser son contenu.
+Ensuite, cliquez sur le bouton "Preview". Vous verrez que `models/Country.php` est listé comme fichier de classe devant être créé. Vous pouvez cliquer sur le nom du fichier de classe pour pré-visualiser son contenu.
 
-Quand vous utilisez Gii, si vous aviez déjà créé le même fichier et que vous l’écraseriez, cliquez sur le bouton `diff`
-à côté du nom de fichier pour voir les différences entre le code à être généré et la version existant.
+Quand vous utilisez Gii, si vous aviez déjà créé le même fichier et que vous souhaitiez l'écraser, cliquez sur le bouton `diff`
+à côté du nom de fichier pour voir les différences entre le code devant être généré et la version existante.
 
 ![Pré Visualisation du Générateur de Modèle](images/start-gii-model-preview.png)
 
@@ -90,7 +90,7 @@ existant, vous verrez également un message indiquant qu’il a été écrasé p
 Générer du Code CRUD <span id="generating-crud"></span>
 --------------------
 
-CRUD signifie Create, Read, Update, and Delete (Créer, Lire, Mettre à Jour et Supprimer), représentant le quatre tâches
+CRUD signifie Create, Read, Update, and Delete (Créer, Lire, Mettre à Jour et Supprimer), représentant les quatre tâches
 communes entreprises avec des données sur la plupart des sites Web. Pour créer les fonctionnalités CRUD en utilisant
 Gii, sélectionnez le "CRUD Generator" (en cliquant sur le lien dans la page index de Gii). Pour l’exemple de "country",
 remplissez le formulaire résultant comme suit :
@@ -113,7 +113,7 @@ Si vous aviez précédemment créé les fichiers  `controllers/CountryController
 Essayer <span id="trying-it-out"></span>
 -------------
 
-Pour voir comment ça fonctionne, utilisez votre navigateur pour accéder à l’URL suivant :
+Pour voir comment ça fonctionne, utilisez votre navigateur pour accéder à l’URL suivante :
 
 ```
 http://hostname/index.php?r=country/index
@@ -132,8 +132,8 @@ permettant de créer un nouveau pays.
 
 ![Mettre à Jour un Pays](images/start-gii-country-update.png)
 
-Ce qui suit est la liste des fichiers générés par Gii, au cas où vous souhaiteriez investiguer la manière dont ces
-fonctionnalités sont implémentées, ou les personnaliser :
+Ce qui suit est la liste des fichiers générés par Gii, au cas où vous souhaiteriez enquêter sur la manière dont ces
+fonctionnalités sont générées, ou les personnaliser :
 
 * Contrôleur: `controllers/CountryController.php`
 * Modèles: `models/Country.php` et `models/CountrySearch.php`
@@ -147,6 +147,6 @@ fonctionnalités sont implémentées, ou les personnaliser :
 Résumé <span id="summary"></span>
 -------
 
-Dans cette section, vous avez appris à utiliser Gii pour générer le code qui implémente une fonctionnalité CRUD 
+Dans cette section, vous avez appris à utiliser Gii pour générer le code qui met en place une fonctionnalité CRUD 
 complète pour les contenus stockés dans une table de base de données.
 
