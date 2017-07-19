@@ -1,15 +1,15 @@
 Hello World
 ============
 
-Cette section decrit la méthode pour créer une nouvelle page "Hello" dans votre application.
+Cette section décrit la méthode pour créer une nouvelle page "Hello" dans votre application.
 Pour ce faire, vous allez créer une [action](structure-controllers.md#creating-actions) et une [vue](structure-views.md):
 
 * L'application distribuera la requête à l'action
 * et à son tour, l'action générera un rendu de la vue qui affiche le mot "Hello" à l'utilisateur.
 
-A travers ce tutoriel, vous apprendrez trois choses :
+À travers ce tutoriel, vous apprendrez trois choses :
 
-1. Comment créer une [action](structure-controllers.md) pour répondre aux requêtes,
+1. comment créer une [action](structure-controllers.md) pour répondre aux requêtes,
 2. comment créer une [vue](structure-views.md) pour composer le contenu de la réponse, et
 3. comment une application distribue les requêtes aux [actions](structure-controllers.md#creating-actions).
 
@@ -22,7 +22,7 @@ Pour la tâche "Hello", vous allez créer une [action](structure-controllers.md#
 
 > Info: Les [actions](structure-controllers.md#creating-actions) sont les objets auxquels les utilisateurs peuvent directement   se référer pour les exécuter. Les actions sont groupées par [contrôleurs](structure-controllers.md). Le résultat de l'exécution d'une action est la réponse que l'utilisateur recevra.
 
-Les actions doivent être déclarées dans des [contrôleurs](structure-controllers.md). Par simplicité, vous pouvez déclarer l'action `dire` dans le contrôleur existant `SiteController`. Ce contrôleur  est défini dans le fichier classe `controllers/SiteController.php`. Voici le début de la nouvelle action :
+Les actions doivent être déclarées dans des [contrôleurs](structure-controllers.md). Par simplicité, vous pouvez déclarer l'action `dire` dans le contrôleur existant `SiteController`. Ce contrôleur est défini dans le fichier classe `controllers/SiteController.php`. Voici le début de la nouvelle action :
 
 ```php
 <?php
@@ -51,7 +51,7 @@ l'ID d'action `creer-commentaire` correspond à l'action nommée `actionCreerCom
 
 La méthode action de notre exemple prend un paramètre `$message`, dont la valeur par défaut est `"Hello"` (de la même manière qu'on affecte une valeur par défaut à n'importe quel argument de fonction ou méthode en PHP). Quand l'application reçoit une requête et détermine que l'action `dire` est responsable de gérer ladite requête, l'application peuplera ce paramètre avec le paramètre du même nom trouvé dans la requête. En d'autres termes, si la requête contient un paramètre `message` ayant pour valeur `"Goodbye"`, la variable `$message` au sein de l'action recevra cette valeur.
 
-Au sein de la méthode action, [[yii\web\Controller::render()|render()]] est appelé pour effectuer le rendu d'un fichier [vue](structure-views.md) appelé `dire`. Le paramètre `message` est également transmis à la vue afin qu'il puisse y être utilisé. Le résultat du rendu est renvoyé à l'utilisateur par la méthode action. Ce résultat sera reçu par l'application et présenté à l'utilisateur dans le navigateur (en tant qu'élément d'une page HTML complète). 
+Au sein de la méthode action, [[yii\web\Controller::render()|render()]] est appelée pour effectuer le rendu d'un fichier [vue](structure-views.md) appelé `dire`. Le paramètre `message` est également transmis à la vue afin qu'il puisse y être utilisé. Le résultat du rendu est renvoyé à l'utilisateur par la méthode action. Ce résultat sera reçu par l'application et présenté à l'utilisateur dans le navigateur (en tant qu'élément d'une page HTML complète). 
 
 
 Créer une Vue <span id="creating-view"></span>
@@ -81,7 +81,7 @@ Le contenu affiché par le script de vue sera renvoyé à l'application en tant 
 Essayer <span id="trying-it-out"></span>
 -------------
 
-Après avoir créé l'action et la vue, vous pouvez accéder à la nouvelle page en accédant à l'URL suivant :
+Après avoir créé l'action et la vue, vous pouvez accéder à la nouvelle page via l'URL suivante :
 
 ```
 http://hostname/index.php?r=site/dire&message=Hello+World
@@ -89,17 +89,17 @@ http://hostname/index.php?r=site/dire&message=Hello+World
 
 ![Hello World](images/start-hello-world.png)
 
-Le résultat de cet URL sera une page affichant "Hello World". La page a les mêmes entête et pied de page que les autres pages de l'application. 
+Le résultat de cette URL sera une page affichant "Hello World". La page a les mêmes entête et pied de page que les autres pages de l'application. 
 
-Si vous omettez le paramètre `message` dans l'URL, La page devrait simplement afficher "Hello". C'est parce que `message` est passé en paramètre de la méthode `actionDire()`, et quand il est omis, la valeur par défaut `"Hello"` sera employée à la place.
+Si vous omettez le paramètre `message` dans l'URL, la page devrait simplement afficher "Hello". C'est parce que `message` est passé en paramètre de la méthode `actionDire()`, et quand il est omis, la valeur par défaut `"Hello"` sera employée à la place.
 
-> Info: L nouvelle page a les mêmes entête et pied de page que les autres pages parce que la méthode [[yii\web\Controller::render()|render()]] intègrera automatiquement le résultat de la vue `dire` dans une pseudo [mise en page](structure-views.md#layouts) qui dans notre cas est située dans `views/layouts/main.php`.
+> Info: La nouvelle page a les mêmes entête et pied de page que les autres pages parce que la méthode [[yii\web\Controller::render()|render()]] intègrera automatiquement le résultat de la vue `dire` dans une pseudo [mise en page](structure-views.md#layouts) qui dans notre cas est située dans `views/layouts/main.php`.
 
-Le paramètre `r` dans l'URL ci-dessus nécessite plus d'explications. Il signifie [route](runtime-routing.md), un ID unique commun toute l'application qui fait référence à une action. Le format de la route est `IDContrôleur/IDAction`. Quand l'application reçoit une requête, elle vérifie ce paramêtre, en utilisant la partie `IDContrôleur` pour déterminer quel classe contrôleur doit être instanciée pour traiter la requête. Ensuite, le contrôleur utilisera la partie `IDAction` pour déterminer quelle action doit être instanciée pour effectuer le vrait travail. Dans ce cas d'exemple, la route `site/dire`
+Le paramètre `r` dans l'URL ci-dessus nécessite plus d'explications. Il signifie [route](runtime-routing.md), un ID unique commun à toute l'application, qui fait référence à une action. Le format de la route est `IDContrôleur/IDAction`. Quand l'application reçoit une requête, elle vérifie ce paramêtre, en utilisant la partie `IDContrôleur` pour déterminer quelle classe contrôleur doit être instanciée pour traiter la requête. Ensuite, le contrôleur utilisera la partie `IDAction` pour déterminer quelle action doit être instanciée pour effectuer le vrai travail. Dans ce cas d'exemple, la route `site/dire`
 sera comprise comme la classe contrôleur `SiteController` et l'action `dire`. Il en resultera que la méthode `SiteController::actionDire()` sera appelée pour traiter la requête.
 
 > Info: De même que les actions, les contrôleurs ont des IDs qui les identifient de manière unique dans une application.
-  Les IDs de contrôleurs emploie les mêmes règles de nommage que les IDs d'actions. Les noms de classes Contrôleurs dérivent
+  Les IDs de contrôleurs emploient les mêmes règles de nommage que les IDs d'actions. Les noms de classes Contrôleurs dérivent
   des IDs de contrôleurs en retirant les tirets des IDs, en mettant la première lettre de chaque mot en majuscule,
   et en suffixant la chaîne résultante du mot `Controller`. Par exemple, l'ID de contrôlleur `poster-commentaire` correspond
   au nom de classe contrôleur `PosterCommentaireController`.
