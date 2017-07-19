@@ -20,7 +20,7 @@ formulaire
 Créer un Modèle <span id="creating-model"></span>
 ----------------
 
-Les données demandées à l'utilisateur seront représentées par une classe de modèle `EntryForm` comme montrée ci-dessous
+Les données demandées à l'utilisateur seront représentées par une classe de modèle `EntryForm` comme montrée ci-dessous et
 enregistrée dans le fichier `models/EntryForm.php`. Merci de vous référer à la section 
 [Auto-chargement de Classes](concept-autoloading.md) pour plus de détails sur la convention de nommage de fichiers
 classes.
@@ -65,7 +65,7 @@ pour valider les données. Les règles de validation déclarées ci-dessus énon
 Si vous avez un objet `EntryForm` peuplé par les données saisies par un utilisateur, vous pouvez appeler sa méthode
 [[yii\base\Model::validate()|validate()]] pour déclencher les routines de validation de données. Un échec de validation
 de données affectera la valeur `true` à la propriété [[yii\base\Model::hasErrors|hasErrors]], et vous pourrez connaître
-quelles erreurs de validations sont apparues via [[yii\base\Model::getErrors|errors]].
+quelles erreurs de validation sont apparues via [[yii\base\Model::getErrors|errors]].
 
 ```php
 <?php
@@ -135,7 +135,7 @@ sera générée, dans laquelle le formulaire HTML sera affiché, ainsi que tout 
 > Note: Dans cet exemple très simple, nous effectuons le rendu de la page de confirmation après soumission de données
 valides. En pratique, vous devriez envisager d'utiliser [[yii\web\Controller::refresh()|refresh()]] ou 
 [[yii\web\Controller::redirect()|redirect()]] pour éviter les 
-[problèmes de multiple soumission de formulaire](http://fr.wikipedia.org/wiki/Post-Redirect-Get).
+[problèmes de multiple soumissions de formulaire](http://fr.wikipedia.org/wiki/Post-Redirect-Get).
 
 
 Créer des Vues <span id="creating-views"></span>
@@ -159,7 +159,7 @@ use yii\helpers\Html;
 </ul>
 ```
 
-La vue `entry` affiche un formulaire HTML. Elle doit être stockée dans le placée `views/site/entry.php`.
+La vue `entry` affiche un formulaire HTML. Elle doit être stockée dans le fichier `views/site/entry.php`.
 
 ```php
 <?php
@@ -198,7 +198,7 @@ http://hostname/index.php?r=site/entry
 
 Vous verrez une page affichant un formulaire comportant deux champs de saisie. Devant chaque champ de saisie, une
 étiquette indique quelle donnée est attendue. Si vous cliquez sur le bouton de soumission sans entrer quoi que ce soit,
-ou si vous ne fournissez pas d'adresse email valide, vous verrez un message d'erreur s'afficher à coté de chaque champ
+ou si vous ne fournissez pas d'adresse email valide, vous verrez un message d'erreur s'afficher à côté de chaque champ
 de saisie posant problème.
 
 ![Formulaire Comportant des Erreurs de Validation](images/start-form-validation.png)
@@ -214,19 +214,19 @@ page affichant les données que vous venez de saisir.
 
 Vous vous demandez peut-être comment le formulaire HTML fonctionne en coulisse, parce qu'il semble presque magique
 qu'il puisse afficher une étiquette pour chaque champ de saisie et afficher sans rafraichir la page des messages 
-d'erreur si vous n'entrez pas les données correctement.
+d'erreur si vous n'entrez pas les données correctement ?
 
-Oui, la validation de données est initialement faite coté client en Javascript, et ensuite effectuée coté serveur en 
+Oui, la validation de données est initialement faite côté client en Javascript, et ensuite effectuée côté serveur en 
 PHP.
 [[yii\widgets\ActiveForm]] est suffisamment intelligent pour extraire les règles de validation que vous avez déclarées 
-dans `EntryForm`, le transformer en code Javascript exécutable, et utiliser le Javascript pour effectuer la validation
+dans `EntryForm`, les transformer en code Javascript exécutable, et utiliser le Javascript pour effectuer la validation
 des données. Dans le cas où vous auriez désactivé le Javascript sur votre navigateur, la validation sera tout de même 
-effectuée coté serveur, comme montré dans la méthode `actionEntry()`. Cela garantit la validité des données en toutes 
+effectuée côté serveur, comme montré dans la méthode `actionEntry()`. Cela garantit la validité des données en toutes 
 circonstances.
 
-> Warning: La validation coté client est un confort qui permet une meilleure expérience utilisateur. La validation coté serveur est toujours nécessaire, que la validation coté client soit ou non en place.
+> Attention: La validation côté client est un confort qui permet une meilleure expérience utilisateur. La validation côté serveur est toujours nécessaire, que la validation côté client soit ou non en place.
 
-Les étiquettes des champs de saisie sont générés par la méthode `field()`, en utilisant les noms des propriété du
+Les étiquettes des champs de saisie sont générées par la méthode `field()`, en utilisant les noms des propriétés du
 modèle.
 Par exemple, l'étiquette `Nom` sera générée à partir de la propriété `nom`. 
 
@@ -238,13 +238,13 @@ Vous pouvez personnaliser une étiquette dans une vue en employant le code suiva
 ```
 
 > Info: Yii fournit ne nombreux widgets pour vous aider à construire rapidement des vues complexes et dynamiques.
-  Comme vous l'apprendrez plus tard, écrire un widget et aussi extrêmement simple. Vous voudrez sans doute transformer   une grande partie de votre code de vues en widgets réutilisables pour simplifier les développements de vues futurs.
+  Comme vous l'apprendrez plus tard, écrire un widget et aussi extrêmement simple. Vous voudrez sans doute transformer une grande partie de votre code de vues en widgets réutilisables pour simplifier les développements de vues futurs.
 
 
 Résumé <span id="summary"></span>
 -------
 
-Dans cette section du guide, vous avez touché toutes les parties du patron de conception MVC. Vous avez appris à créer 
+Dans cette section du guide, vous avez abordé toutes les parties du patron de conception MVC. Vous avez appris à créer 
 une classe modèle pour représenter les données utilisateur et valider lesdites données.
 
 Vous avez également appris comment recevoir des données des utilisateurs et comment les réafficher dans le navigateur. 
