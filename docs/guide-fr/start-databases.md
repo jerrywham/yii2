@@ -48,7 +48,7 @@ INSERT INTO `country` VALUES ('RU','Russia',146519759);
 INSERT INTO `country` VALUES ('US','United States',322976000);
 ```
 
-Vous avez désormais une base de données appelée `yii2basic` conmprenant une table `country` comportant trois colonnes et contenant dix lignes de données.
+Vous avez désormais une base de données appelée `yii2basic` comprenant une table `country` comportant trois colonnes et contenant dix lignes de données.
 
 Configurer une Connexion à la BDD <span id="configuring-db-connection"></span>
 ---------------------------
@@ -73,11 +73,11 @@ return [
 ```
 
 Le fichier `config/db.php` est un exemple type d'outil de [configuration](concept-configurations.md) basé sur un 
-fichier. Ce fichier de configuration en particulier spécifie les paramètres nécessaires à la création et 
+fichier. Ce fichier de configuration en particulier spécifie les paramètres nécessaires à la création et à 
 l'initialisation d'une instance de [[yii\db\Connection]] grâce à laquelle vous pouvez effectuer des requêtes SQL 
 dans la base de données sous-jacente.
 
-On peut accéder à connexion à la BDD configurée ci-dessus depuis le code de l'application vial'expression 
+On peut accéder à connexion à la BDD configurée ci-dessus depuis le code de l'application via l'expression 
 `Yii::$app->db`.
 
 > Info: le fichier `config/db.php` sera inclus par la configuration principale de l'application `config/web.php`, 
@@ -185,7 +185,7 @@ Pour limiter le nombre de pays retournés par chaque requête, la requête est p
 * Il est utilisé dans la vue pour afficher un sélecteur de pages qui consiste en une liste de boutons de page, comme nous
   l'expliquerons dans la prochaine sous-section.
 
-A la fin du code, l'action `index` effectue le rendu d'une vue nommée `index`, et lui transmet les données pays ainsi que les informations de pagination.
+À la fin du code, l'action `index` effectue le rendu d'une vue nommée `index` et lui transmet les données pays ainsi que les informations de pagination.
 
 
 Créer une Vue <span id="creating-view"></span>
@@ -216,7 +216,7 @@ use yii\widgets\LinkPager;
 La vue comprend deux sections relatives à l'affichage des données pays. Dans la première partie, les données pays fournies
 sont parcourues et rendues sous forme de liste non ordonnée HTML.
 Dans la deuxième partie, un objet graphique [[yii\widgets\LinkPager]] est rendu en utilisant les informations de pagination transmises par l'action.
-L'objet graphique `LinkPager` affiche une liste de boutons de page. Le fait de cliquer sur l'un deux rafraichit les données pays dans la page correspondante.
+L'objet graphique `LinkPager` affiche une liste de boutons de page. Le fait de cliquer sur l'un deux rafraîchit les données pays dans la page correspondante.
 
 
 Essayer <span id="trying-it-out"></span>
@@ -249,7 +249,7 @@ En coulisse, [[yii\data\Pagination|Pagination]] fournit toutes les fonctionnalit
 * Si vous cliquez sur le bouton de page "2", une nouvelle requête pour la route `country/index` sera déclenchée et 
   traitée.
   [[yii\data\Pagination|Pagination]] lit le paramètre de requête `page` dans l'URL et met le numéro de page à 2.
-  La nouvelle requête de pays aura donc la clause `LIMIT 5 OFFSET 5` et retournera le cinq pays suivants pour être
+  La nouvelle requête de pays aura donc la clause `LIMIT 5 OFFSET 5` et retournera les cinq pays suivants pour être
   affichés.
 
 
